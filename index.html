@@ -3,27 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Assignment-1</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <main>
-      <header>
+    <div class="hero-background">
+      <header class="centered-section">
         <span class="header-logo-text">LOGO</span>
-        <button class="sign-up-btn">
+        <button class="sign-up-btn btn">
           <span>Sign Up</span>
         </button>
       </header>
 
-      <section class="hero-section">
+      <section class="hero-section centered-section">
         <h1>Cool Dark UI Template for Webflow Agencies!</h1>
-        <span class="stay-focusted"></span>
+        <span class="stay-focused">Stay Focused</span>
       </section>
+    </div>
 
+    <main class="centered-section">
       <section class="action-section">
         <div>
           <h2>See It in Action</h2>
           <p>Explore the live preview and imagine your brand in this bold new look.</p>
-          <button class="launch-btn"></button>
+          <button class="launch-btn btn">Launch live preview</button>
         </div>
         <div>
           <img src="/assets/wc-mini.png" alt="wc-mini" />
@@ -31,7 +34,7 @@
       </section>
 
       <section class="productive-user-section">
-        <h3></h3>
+        <h2>Joined Thousands of Productive Users</h2>
         <div>
           <div>
             <span>50K</span>
@@ -49,7 +52,7 @@
       </section>
 
       <section class="testimonial-section">
-        <h3></h3>
+        <h2>What our users say</h2>
         <div>
           <div class="testimonial-card">
             <div class="star-container">
@@ -59,8 +62,10 @@
               <img src="/assets/icon-star.png" alt="" />
               <img src="/assets/icon-star.png" alt="" />
             </div>
-            <h4>Loved by Designers</h4>
-            <p>This template instantly leveled up our presence."-Studio Vertex</p>
+            <div>
+              <h4>Loved by Designers</h4>
+              <p>This template instantly leveled up our presence."-Studio Vertex</p>
+            </div>
             <div>
               <img src="/assets/avatar.png" alt="avatar" />
               <div>
@@ -78,8 +83,10 @@
               <img src="/assets/icon-star.png" alt="" />
               <img src="/assets/icon-star.png" alt="" />
             </div>
-            <h4>Loved by Designers</h4>
-            <p>This template instantly leveled up our presence."-Studio Vertex</p>
+            <div>
+              <h4>Loved by Designers</h4>
+              <p>This template instantly leveled up our presence."-Studio Vertex</p>
+            </div>
             <div>
               <img src="/assets/avatar.png" alt="avatar" />
               <div>
@@ -97,8 +104,10 @@
               <img src="/assets/icon-star.png" alt="" />
               <img src="/assets/icon-star.png" alt="" />
             </div>
-            <h4>Loved by Designers</h4>
-            <p>This template instantly leveled up our presence."-Studio Vertex</p>
+            <div>
+              <h4>Loved by Designers</h4>
+              <p>This template instantly leveled up our presence."-Studio Vertex</p>
+            </div>
             <div>
               <img src="/assets/avatar.png" alt="avatar" />
               <div>
@@ -124,14 +133,14 @@
 
       <section class="form-section">
         <h2>Let's Get in Touch</h2>
-        <form onsubmit="e.target.preventDefault()">
+        <form>
           <div>
             <label for="email"></label>
-            <input type="email" id="email">
+            <input type="email" id="email" />
           </div>
           <div>
             <label for="name"></label>
-            <input type="text" id="name">
+            <input type="text" id="name" />
           </div>
           <div>
             <label for="message"></label>

@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:wght@100..900&display=swap');
+
+:root {
+  --accent-clr: #4e47ff;
+  --text-clr: #252432;
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  color: var(--text-clr);
+  background-color: #f5f8ff;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Raleway', sans-serif;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.hero-background {
+  background-image: url('/assets/Hero-bg.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.centered-section {
+  max-width: 1140px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+  box-sizing: content-box;
+}
+
+header {
+  height: 150px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header > span {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: var(--accent-clr);
+}
+
+.btn {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.925rem;
+  font-weight: 600;
+  border: none;
+  background-color: var(--accent-clr);
+  color: white;
+  padding-inline: 2rem;
+  padding-block: 0.825rem;
+  border-radius: 0.625rem;
+  border: 1px solid var(--accent-clr);
+
+  transition: all;
+  transition-duration: 150ms;
+
+  @media (pointer: fine) {
+    cursor: pointer;
+  }
+}
+
+.btn:hover {
+  background-color: transparent;
+  color: var(--accent-clr);
+}
+
+/* ! Hero section styling */
+.hero-section {
+  padding-block: 6rem 10rem;
+}
+
+h1 {
+  font-size: clamp(1.725rem, 0.826rem + 3.5962vw, 4.0625rem);
+  text-align: center;
+  max-width: 800px;
+  margin-inline: auto;
+  margin-block-end: 2.25rem;
+}
+
+h2 {
+  font-size: clamp(1.425rem, 0.9635rem + 1.8462vw, 2.625rem);
+}
+
+h1 + span {
+  display: block;
+  max-width: fit-content;
+  margin-inline: auto;
+
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.925rem;
+  font-weight: 600;
+  border: none;
+  background-color: var(--accent-clr);
+  color: white;
+  padding-inline: 2rem;
+  padding-block: 0.825rem;
+  border-radius: 0.625rem;
+  border: 1px solid var(--accent-clr);
+}
+
+/* ! Action section */
+.action-section {
+  > div:first-child {
+    max-width: 520px;
+    display: grid;
+    gap: 1rem;
+
+    p {
+      font-size: 1.4725rem;
+      font-family: 'Raleway', sans-serif;
+      opacity: 0.4;
+    }
+
+    button {
+      max-width: fit-content;
+    }
+  }
+
+  > div:last-child {
+    border-radius: 3rem;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  @media (width < 700px) {
+    display: grid;
+    gap: 2rem;
+  }
+
+  @media (width>=700px) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+  }
+}
+
+/* ! Productive user section styling */
+.productive-user-section {
+  background-color: #e5e7ff;
+  padding-block: 3rem;
+  border-radius: 1.5rem;
+  box-sizing:border-box;
+
+  display: grid;
+  gap: 2rem;
+
+  h2 {
+    text-align: center;
+  }
+
+  > div {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    * {
+      flex: 1;
+    }
+
+    > div {
+      display: grid;
+      justify-items: center;
+
+      span:first-child {
+        font-size: 5rem;
+        line-height: 3.5lh;
+        color: var(--accent-clr);
+        font-weight: 700;
+      }
+
+      span:last-child {
+        font-size: 1.225rem;
+        opacity: 0.5;
+      }
+    }
+  }
+}
+
+/* ! Testimonial section styling */
+.testimonial-section {
+  display: grid;
+  gap: 2rem;
+
+  > div {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+.testimonial-card {
+  border: 1px solid #f2eded;
+  background-color: #fafbff;
+  border-radius: 1.225rem;
+  padding: 1.5rem;
+
+  display: grid;
+  gap: 1.5rem;
+
+  >div:first-child {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  >div:first-child + div {
+    display: grid;
+    gap: 0.5rem;
+  }
+  
+  >div:last-child {
+    display: flex;
+    align-items: center;
+    gap: 0.725rem;
+
+    img {
+      border-radius: 50%;
+    }
+
+    div {
+      display: grid;
+
+      h5 {
+        opacity: 0.7;
+        font-weight: 600;
+      }
+      span {
+        font-size: 0.825rem;
+        opacity: 0.5;
+      }
+    }
+  }
+}
