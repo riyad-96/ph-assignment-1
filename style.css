@@ -1,8 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&family=Raleway:wght@100..900&display=swap');
 
 :root {
-  --accent-clr: #4e47ff;
-  --text-clr: #252432;
+  --main-bg: hsl(222, 100%, 98%);
+  --accent-clr: hsl(242, 100%, 64%);
+  --text-clr: hsl(244, 16%, 17%);
+
+  --productive-user-bg: hsl(235, 100%, 95%);
+
+  --testimonial-card-bg: #fafbff;
+  --testimonial-card-border-clr: #f2eded;
+
+  --focus-better-bg: #ffffff;
+
+  --input-bg: #fff;
+  --input-clr: #000;
+  --input-border-clr: #d6dded;
+
+  --footer-bg: #ffffff;
 }
 
 * {
@@ -10,11 +24,84 @@
   box-sizing: border-box;
 }
 
+html {
+  color-scheme: dark light;
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: 'Poppins', sans-serif;
   margin: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+
+.root {
   color: var(--text-clr);
-  background-color: #f5f8ff;
+  background-color: var(--main-bg);
+}
+
+.theme-btn {
+  position: fixed;
+  z-index: 5;
+  top: 1rem;
+  left: 1rem;
+  padding-block: 0.5rem;
+  padding-inline: 1rem;
+  background-color: hsl(228, 50%, 50%);
+  color: hsl(0, 0%, 100%);
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.825rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+
+  &:hover {
+    background-color: hsl(228, 50%, 55%);
+  }
+
+  &:active {
+    opacity: 0.8;
+  }
+
+  transition: background-color 150ms;
+
+
+  @media(pointer: fine) {
+    cursor: pointer;
+  }
+}
+
+input[type='checkbox'] {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+  overflow: hidden;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+input[type='checkbox']:checked + .root {
+  --main-bg: hsl(222, 100%, 2%);
+  --accent-clr: hsl(242, 100%, 70%);
+  --text-clr: hsl(244, 16%, 83%);
+
+  --productive-user-bg: hsl(235, 30%, 7%);
+
+  --testimonial-card-bg: hsl(228, 30%, 10%);
+  --testimonial-card-border-clr: hsl(228, 40%, 18%);
+
+  --focus-better-bg: hsl(228, 30%, 10%);
+
+  --footer-bg: hsl(228, 30%, 10%);
+
+  --input-bg: hsl(228, 30%, 15%);
+  --input-clr: hsl(228, 30%, 95%);
+  --input-border-clr: hsl(228, 30%, 27%);
+
+  .hero-background {
+    background-image: url('./assets/hero-bg-dark.png');
+  }
 }
 
 h1,
@@ -30,7 +117,7 @@ img {
 }
 
 .hero-background {
-  background-image: url('/assets/Hero-bg.png');
+  background-image: url('./assets/Hero-bg.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -73,8 +160,7 @@ header > span {
   border-radius: 0.625rem;
   border: 1px solid var(--accent-clr);
 
-  transition: all;
-  transition-duration: 150ms;
+  transition: background-color 250ms, color 250ms, translate 250ms, box-shadow 500ms;
 
   @media (pointer: fine) {
     cursor: pointer;
@@ -82,8 +168,10 @@ header > span {
 }
 
 .btn:hover {
+  translate: -2px;
   background-color: transparent;
   color: var(--accent-clr);
+  box-shadow: 3px 5px 0 var(--accent-clr);
 }
 
 /* ! Hero section styling */
@@ -152,6 +240,12 @@ h1 + span {
   @media (width < 700px) {
     display: grid;
     gap: 2rem;
+
+    > div:first-of-type {
+      justify-items: center;
+      text-align: center;
+      margin-inline: auto;
+    }
   }
 
   @media (width>=700px) {
@@ -164,7 +258,7 @@ h1 + span {
 
 /* ! Productive user section styling */
 .productive-user-section {
-  background-color: #e5e7ff;
+  background-color: var(--productive-user-bg);
   padding-block: 3rem;
   border-radius: 1.5rem;
   box-sizing: border-box;
@@ -216,6 +310,10 @@ h1 + span {
   display: grid;
   gap: 2rem;
 
+  h2 {
+    text-align: center;
+  }
+
   > div {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -224,8 +322,8 @@ h1 + span {
 }
 
 .testimonial-card {
-  border: 1px solid #f2eded;
-  background-color: #fafbff;
+  border: 1px solid var(--testimonial-card-border-clr);
+  background-color: var(--testimonial-card-bg);
   border-radius: 1.225rem;
   padding: 1.5rem;
 
@@ -269,20 +367,25 @@ h1 + span {
 
 /* ! Focus better section */
 .focus-better-section {
-  background-color: #fff;
+  background-color: var(--focus-better-bg);
   display: grid;
   gap: 1rem;
   border-radius: 1rem;
   padding-block: 4rem;
+  padding-inline: 1.5rem;
 
-  div:first-child {
+  > :first-child {
     text-align: center;
     display: grid;
     justify-items: center;
     gap: 1rem;
+
+    p {
+      opacity: 0.7;
+    }
   }
 
-  div:last-child {
+  > :last-child {
     max-width: fit-content;
     margin-inline: auto;
     border-radius: 2.625rem;
@@ -297,7 +400,7 @@ h1 + span {
     font-size: clamp(1.725rem, 0.3692rem + 5.4231vw, 5.25rem);
   }
 
-  @media(width < 700px) {
+  @media (width < 700px) {
     h2 {
       text-align: center;
     }
@@ -313,7 +416,7 @@ h1 + span {
       flex: 1;
     }
   }
-  @media(width < 700px) {
+  @media (width < 700px) {
     > :not(:last-child) {
       margin-block-end: 2.5rem;
     }
@@ -327,18 +430,23 @@ form {
   textarea {
     min-width: 0;
     width: 100%;
-    border: 1px solid #d6dded;
     outline: none;
     padding-inline: 1.5rem;
     padding-block: 1rem;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 1rem;
     border-radius: 0.525rem;
+    border: 1px solid var(--input-border-clr);
+    background-color: var(--input-bg);
+    color: var(--input-clr);
+
+    transition: all 200ms;
   }
 
   input:focus,
   textarea:focus {
     border: 1px solid var(--accent-clr);
+    box-shadow: 0 0 1px 4px hsl(from var(--accent-clr) h s calc(l + 20));
   }
 
   textarea {
@@ -364,7 +472,7 @@ form {
 /* ! Footer styling */
 footer {
   padding-block: 6rem;
-  background-color: #fff;
+  background-color: var(--footer-bg);
 }
 
 footer > div {
@@ -404,10 +512,18 @@ footer > div {
     transition: text-underline-offset 300ms;
     padding-inline: 1rem;
     padding-block: 0.3rem;
+    font-weight: 500;
 
     &:hover {
+      color: var(--accent-clr);
       text-decoration: underline;
-      text-underline-offset: 1px;
+      text-underline-offset: 2px;
     }
   }
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--accent-clr);
+  outline-offset: 2px;
 }
