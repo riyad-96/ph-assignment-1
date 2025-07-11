@@ -43,6 +43,10 @@ img {
   box-sizing: content-box;
 }
 
+.section-spacing-y:not(.section-spacing-y:last-child) {
+  margin-block-end: 5rem;
+}
+
 header {
   height: 150px;
   display: flex;
@@ -173,27 +177,35 @@ h1 + span {
   }
 
   > div {
-    display: flex;
-    justify-content: space-between;
-    gap: 2rem;
-    * {
-      flex: 1;
-    }
-
     > div {
       display: grid;
       justify-items: center;
 
-      span:first-child {
-        font-size: 5rem;
-        line-height: 3.5lh;
+      > :first-child {
+        font-size: clamp(3rem, 2.2308rem + 3.0769vw, 5rem);
+        line-height: clamp(3.75rem, 3.0288rem + 2.8846vw, 5.625rem);
         color: var(--accent-clr);
         font-weight: 700;
       }
 
-      span:last-child {
-        font-size: 1.225rem;
+      > :last-child {
+        font-size: clamp(0.925rem, 0.8096rem + 0.4615vw, 1.225rem);
         opacity: 0.5;
+      }
+    }
+
+    @media (width >= 700px) {
+      display: flex;
+      justify-content: space-between;
+      gap: 2rem;
+
+      * {
+        flex: 1;
+      }
+    }
+    @media (width<700px) {
+      > :not(:last-child) {
+        margin-block-end: 1rem;
       }
     }
   }
@@ -257,10 +269,11 @@ h1 + span {
 
 /* ! Focus better section */
 .focus-better-section {
-  background-color: #fafbff;
+  background-color: #fff;
   display: grid;
   gap: 1rem;
   border-radius: 1rem;
+  padding-block: 4rem;
 
   div:first-child {
     text-align: center;
@@ -280,17 +293,30 @@ h1 + span {
 /* ! Form section styling */
 
 .form-section {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
-
   h2 {
     font-size: clamp(1.725rem, 0.3692rem + 5.4231vw, 5.25rem);
   }
 
-  * {
-    flex: 1;
+  @media(width < 700px) {
+    h2 {
+      text-align: center;
+    }
+  }
+
+  @media (width>=700px) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+
+    * {
+      flex: 1;
+    }
+  }
+  @media(width < 700px) {
+    > :not(:last-child) {
+      margin-block-end: 2.5rem;
+    }
   }
 }
 
@@ -308,6 +334,11 @@ form {
     font-family: 'Poppins', sans-serif;
     font-size: 1rem;
     border-radius: 0.525rem;
+  }
+
+  input:focus,
+  textarea:focus {
+    border: 1px solid var(--accent-clr);
   }
 
   textarea {
@@ -355,10 +386,10 @@ footer > div {
 }
 
 .footer-logo-text {
-  font-size: 6.25rem;
+  font-size: clamp(3rem, 1.75rem + 5vw, 6.25rem);
   font-weight: 700;
   color: var(--accent-clr);
-  line-height: 4lh;
+  line-height: clamp(3.75rem, 2.7885rem + 3.8462vw, 6.25rem);
 }
 
 .footer-link-container {
