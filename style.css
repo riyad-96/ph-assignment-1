@@ -34,7 +34,6 @@ body {
   font-family: 'Inter', sans-serif;
 }
 
-
 .root {
   color: var(--text-clr);
   background-color: var(--main-bg);
@@ -53,21 +52,27 @@ body {
   font-size: 0.825rem;
   font-weight: 600;
   border-radius: 0.5rem;
+  user-select: none;
 
   &:hover {
     background-color: hsl(228, 50%, 55%);
   }
 
   &:active {
-    opacity: 0.8;
+    translate: 0 1px;
+    background-color: hsl(228, 50%, 60%);
   }
 
   transition: background-color 150ms;
 
-
-  @media(pointer: fine) {
+  @media (pointer: fine) {
     cursor: pointer;
   }
+}
+
+.theme-btn::selection {
+  background-color: transparent;
+  color: #fff;
 }
 
 input[type='checkbox'] {
@@ -167,11 +172,15 @@ header > span {
   }
 }
 
+
 .btn:hover {
   translate: -2px;
   background-color: transparent;
   color: var(--accent-clr);
   box-shadow: 3px 5px 0 var(--accent-clr);
+}
+.btn:active {
+  translate: -2px 3px;
 }
 
 /* ! Hero section styling */
@@ -440,7 +449,7 @@ form {
     background-color: var(--input-bg);
     color: var(--input-clr);
 
-    transition: all 200ms;
+    transition: all 200ms, background-color 0;
   }
 
   input:focus,
